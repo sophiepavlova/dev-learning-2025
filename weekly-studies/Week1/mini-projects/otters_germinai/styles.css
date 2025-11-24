@@ -1,0 +1,327 @@
+/* Color Variables */
+:root {
+    --primary-accent: #C6702C; /* Warm Otter Brown */
+    --secondary-accent: #2A84D2; /* Calm River Blue */
+    --text-body: #333333; /* Soft Black */
+    --background: #FDFDFD; /* Clean White */
+    --muted-grey: #AAAAAA; /* Light Grey */
+}
+
+/* Global Styles and Typography */
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--background);
+    color: var(--text-body);
+    margin: 0;
+    padding: 0;
+    line-height: 1.7;
+    text-rendering: optimizeLegibility;
+}
+
+.long-read-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+h1 {
+    font-size: 72px;
+    font-weight: 900; /* ExtraBold */
+    color: var(--text-body);
+    line-height: 1;
+    margin-bottom: 10px;
+}
+
+h2 {
+    font-size: 42px;
+    font-weight: 700; /* Bold */
+    color: var(--text-body);
+    margin-top: 60px;
+    padding-bottom: 10px;
+    border-bottom: 3px solid var(--primary-accent); /* Underline */
+}
+
+h3 {
+    font-size: 28px;
+    font-weight: 500; /* Medium */
+    color: var(--primary-accent);
+    margin-top: 40px;
+    margin-bottom: 15px;
+}
+
+p, .interactive-term-hint {
+    font-size: 19px;
+    margin-bottom: 25px;
+}
+
+/* Hero Section */
+.hero-section {
+    position: relative;
+    height: 600px; /* Tall viewport height for long-read feel */
+    overflow: hidden;
+    background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.7)), url('otter-hero-placeholder.jpg') center center/cover no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.hero-content {
+    color: white;
+    z-index: 10;
+}
+
+.subtitle {
+    font-size: 24px;
+    font-weight: 300;
+    color: #FFF;
+}
+
+/* Interactive Elements (General) */
+.term {
+    color: var(--primary-accent);
+    font-weight: 500;
+    border-bottom: 2px dotted var(--primary-accent);
+    cursor: help;
+}
+
+/* Chapter 2: Anatomy */
+.anatomy-container {
+    position: relative;
+    text-align: center;
+    margin: 40px 0;
+}
+.otter-anatomy-img {
+    width: 100%;
+    max-width: 600px;
+    height: auto;
+    opacity: 0.2; /* Initially muted */
+    transition: opacity 1s;
+}
+
+.anatomy-label {
+    position: absolute;
+    background: var(--secondary-accent);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 3px;
+    font-size: 14px;
+    opacity: 0; /* Hidden until JS triggers scroll */
+    transition: opacity 0.5s, transform 0.5s;
+    pointer-events: none;
+}
+
+/* Position Anatomy Labels (Example: you would fine-tune these) */
+.anatomy-label[data-label="fur"] { top: 20%; left: 70%; }
+.anatomy-label[data-label="feet"] { top: 60%; left: 20%; }
+.anatomy-label[data-label="tail"] { top: 80%; left: 5%; }
+
+
+/* Interactive Senses */
+.interactive-senses {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+.sense-btn {
+    background: var(--background);
+    color: var(--secondary-accent);
+    border: 2px solid var(--secondary-accent);
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s, color 0.3s;
+}
+.sense-btn:hover, .sense-btn.active {
+    background-color: var(--secondary-accent);
+    color: white;
+}
+.sense-output-box {
+    background-color: #eee;
+    padding: 15px;
+    border-left: 5px solid var(--secondary-accent);
+    font-style: italic;
+    min-height: 50px;
+}
+
+/* Chapter 3: Metabolism & Prey */
+.metabolism-gauge-wrapper {
+    background: #e0e0e0;
+    height: 10px;
+    border-radius: 5px;
+    margin: 20px 0 30px;
+    position: relative;
+}
+.metabolism-bar {
+    height: 100%;
+    width: 0%; /* Initial width for JS animation */
+    background-color: var(--primary-accent);
+    border-radius: 5px;
+    transition: width 1s ease-out;
+}
+.metabolism-label {
+    position: absolute;
+    top: -30px;
+    right: 0;
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--primary-accent);
+}
+.tool-use-visual {
+    position: relative;
+    text-align: center;
+    margin: 30px 0;
+}
+.otter-tool-img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+.play-animation-btn {
+    background: var(--primary-accent);
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 50px;
+    cursor: pointer;
+    font-size: 18px;
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    transition: opacity 0.3s;
+}
+
+/* Prey Grid */
+.prey-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-top: 20px;
+}
+.prey-item {
+    text-align: center;
+    padding: 15px;
+    border: 1px solid var(--muted-grey);
+    border-radius: 8px;
+    cursor: pointer;
+    position: relative;
+    transition: background-color 0.3s;
+}
+.prey-item:hover {
+    background-color: #f5f5f5;
+    border-color: var(--secondary-accent);
+}
+.prey-item img {
+    width: 100%;
+    height: auto;
+    max-height: 150px;
+    object-fit: cover;
+    border-radius: 4px;
+}
+.prey-name {
+    display: block;
+    margin-top: 10px;
+    font-weight: 700;
+    color: var(--text-body);
+}
+
+
+/* Chapter 4: Life Cycle */
+.life-cycle-chart {
+    border-left: 3px solid var(--secondary-accent);
+    padding-left: 20px;
+    margin: 30px 0;
+}
+.cycle-stage {
+    padding: 15px 0;
+    position: relative;
+    opacity: 0.4; /* Initially muted, brightens on scroll via JS */
+    transition: opacity 0.5s;
+    font-size: 18px;
+    font-weight: 500;
+}
+.cycle-stage::before {
+    content: '\2022'; /* Bullet point */
+    color: var(--primary-accent);
+    font-size: 2em;
+    position: absolute;
+    left: -32px;
+    top: 5px;
+}
+
+.cycle-noun-btn {
+    background: var(--primary-accent);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+    transition: background-color 0.3s;
+}
+.cycle-noun-btn:hover {
+    background-color: #a35d26;
+}
+.collective-noun-display {
+    margin-top: 15px;
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--secondary-accent);
+    min-height: 30px;
+}
+
+/* Chapter 5: Threats and Culture */
+.threat-spectrum {
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+    margin: 30px 0;
+}
+.threat-icon {
+    font-size: 18px;
+    padding: 20px;
+    cursor: pointer;
+    opacity: 0.7;
+    transition: opacity 0.3s, color 0.3s;
+}
+.threat-icon:hover {
+    opacity: 1;
+    color: var(--primary-accent);
+}
+.threat-icon i {
+    display: block;
+    font-size: 3em;
+    margin-bottom: 10px;
+}
+.threat-output-box {
+    min-height: 80px;
+    background-color: #eee;
+    padding: 15px;
+    border-left: 5px solid var(--primary-accent);
+    font-style: italic;
+    margin-bottom: 30px;
+}
+
+.call-to-action {
+    text-align: center;
+    background-color: #f0f0f0;
+    padding: 40px 20px;
+    margin-top: 50px;
+    border-radius: 10px;
+}
+.cta-button {
+    background-color: var(--primary-accent);
+    color: white;
+    text-decoration: none;
+    padding: 15px 30px;
+    border-radius: 50px;
+    font-size: 20px;
+    font-weight: 700;
+    display: inline-block;
+    margin-top: 20px;
+    transition: background-color 0.3s;
+}
+.cta-button:hover {
+    background-color: #a35d26;
+}
