@@ -1,0 +1,14 @@
+#btn {
+  padding: 20px;
+  width: 200px;
+  background-color: antiquewhite;
+  border: none;
+  font-size: 24px;
+}
+
+.center-wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 300px;
+}
