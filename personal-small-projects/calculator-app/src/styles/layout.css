@@ -1,0 +1,189 @@
+/* ============================================
+   PIXEL-PERFECT MOBILE CALCULATOR LAYOUT
+   ============================================ */
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 24px;
+  gap: 32px;
+  width: 100%;
+  max-width: 425px;
+  margin: 0 auto;
+}
+
+/* ============================================
+   THEME SELECTOR (small pill)
+   ============================================ */
+.theme-selector-container {
+  position: relative;
+  z-index: 5;
+}
+.theme-selector {
+  display: flex;
+  align-items: center;
+  background: white;
+  padding: 4px 6px; /* верх/низ 4px, лево/право 6px */
+  gap: 10px; /* расстояние между иконками */
+  border-radius: 14px;
+  width: fit-content;
+  position: relative;
+  z-index: 1-;
+}
+
+/* Левая иконка */
+.theme-icon-left {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.theme-icon-left .icon {
+  font-size: 16px; /* эмодзи или svg внутри */
+  line-height: 1;
+}
+
+/* Правая круглая кнопка */
+.theme-chevron {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--btn-dark-bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+/* Шеврон */
+.theme-chevron svg {
+  width: 16px;
+  height: 6px;
+  color: var(--text-main);
+  display: block;
+}
+
+/* DROPDOWN MENU */
+.selector-menu {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  background: var(--menu-accent-bg);
+  border-radius: 16px;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  padding: 6px 0;
+  width: max-content;
+  z-index: 20;
+}
+
+.selector-item {
+  padding: 10px 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 17px;
+  color: var(--menu-text);
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.selector-item.selected {
+  background: var(--menu-light-bg);
+}
+
+/* ============================================
+   DISPLAY
+   ============================================ */
+
+.display {
+  width: 100%;
+  padding: 0 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.display-equation {
+  font-size: 40px;
+  line-height: 40px;
+  font-weight: 400;
+  text-align: right;
+  color: var(--text-secondary);
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.display-result {
+  font-size: 96px;
+  line-height: 96px;
+  font-weight: 400;
+  text-align: right;
+  color: var(--text-main);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* ============================================
+   KEYPAD (fixed pixel grid)
+   ============================================ */
+
+.keypad {
+  width: 336px; /* 72*4 + 16*3 */
+  display: grid;
+  grid-template-columns: repeat(4, 72px);
+  grid-template-rows: repeat(5, 72px);
+  gap: 16px;
+  justify-content: center;
+  margin-top: 8px;
+}
+
+/* BUTTONS */
+.calc-button {
+  width: 72px;
+  height: 72px;
+  border-radius: 24px;
+  font-size: 32px;
+  font-weight: 400;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  user-select: none;
+  transition: transform 0.1s ease;
+}
+
+.calc-button:active {
+  transform: scale(0.95);
+}
+
+.btn-light {
+  background: var(--btn-light-bg);
+  color: var(--btn-light-text);
+}
+
+.btn-dark {
+  background: var(--btn-dark-bg);
+  color: var(--btn-dark-text);
+}
+
+.btn-accent {
+  background: var(--btn-accent-bg);
+  color: var(--btn-accent-text);
+}
+
+/* ============================================
+   RESPONSIVE: FULL APP SCALE ON SMALL SCREENS
+   ============================================ */
+
+@media (max-width: 425px) {
+  #root {
+    transform: scale(calc(100vw / 425));
+    transform-origin: top center;
+  }
+}

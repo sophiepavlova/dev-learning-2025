@@ -1,0 +1,165 @@
+/* ===============================
+   THEME VARIABLES
+   =============================== */
+
+/* Базовые переменные по умолчанию */
+:root {
+  --bg: white;
+
+  --text-main: black;
+  --text-secondary: rgba(0, 0, 0, 0.7); /* формула 70% */
+
+  --btn-light-bg: #ffffff;
+  --btn-light-text: black;
+
+  --btn-dark-bg: #cccccc;
+  --btn-dark-text: black;
+
+  --btn-accent-bg: #cccccc;
+  --btn-accent-text: white;
+
+  --menu-light-bg: #ffffff;
+  --menu-accent-bg: #ffffff;
+  --menu-text: black;
+}
+
+/* =============================================
+   🍓 Strawberry Milk
+   ============================================= */
+.theme-strawberry {
+  --bg: #fee8ef;
+
+  --text-main: #7c0521;
+  --text-secondary: rgba(124, 5, 33, 0.7);
+
+  --btn-light-bg: #fcc4d7;
+  --btn-light-text: #7c0521;
+
+  --btn-dark-bg: #f98ab0;
+  --btn-dark-text: #7c0521;
+
+  --btn-accent-bg: #f98ab0;
+  --btn-accent-text: #7c0521;
+
+  --menu-light-bg: #fcc4d7;
+  --menu-accent-bg: #fee8ef;
+  --menu-text: #7c0521;
+}
+
+/* =============================================
+   💜 Lavender Dreams
+   ============================================= */
+.theme-lavender {
+  --bg: #f9f3fa;
+
+  --text-main: #6b0d75;
+  --text-secondary: rgba(107, 13, 117, 0.7);
+
+  --btn-light-bg: #ebd8f0;
+  --btn-light-text: #6b0d75;
+
+  --btn-dark-bg: #d5b8d8;
+  --btn-dark-text: #6b0d75;
+
+  --btn-accent-bg: #d5b8d8;
+  --btn-accent-text: #6b0d75;
+
+  --menu-light-bg: #ebd8f0;
+  --menu-accent-bg: #f9f3fa;
+  --menu-text: #6b0d75;
+}
+
+/* =============================================
+   🍵 Matcha Latte
+   ============================================= */
+.theme-matcha {
+  --bg: #eaf6df;
+
+  --text-main: #004000;
+  --text-secondary: rgba(0, 64, 0, 0.7);
+
+  --btn-light-bg: #c1e4a0;
+  --btn-light-text: #004000;
+
+  --btn-dark-bg: #98d361;
+  --btn-dark-text: #004000;
+
+  --btn-accent-bg: #98d361;
+  --btn-accent-text: #004000;
+
+  --menu-light-bg: #c1e4a0;
+  --menu-accent-bg: #eaf6df;
+  --menu-text: #004000;
+}
+
+/* =============================================
+   🎀 Hello Kitten (особенная тема)
+   ============================================= */
+.theme-kitten {
+  --bg: #ffffff;
+
+  /* Цвет текста */
+  --text-main: #0b3c5e;
+  --text-secondary: rgba(11, 60, 94, 0.7);
+
+  /* Особые кнопки */
+  --btn-light-bg: #ed576d; /* светлые */
+  --btn-light-text: white;
+
+  --btn-dark-bg: #d62139; /* тёмные */
+  --btn-dark-text: white;
+
+  --btn-accent-bg: #ffda47; /* Жёлтые особые кнопки */
+  --btn-accent-text: #0b3c5e;
+
+  /* Menu */
+  --menu-light-bg: #ffda47; /* фон строки при выборе */
+  --menu-accent-bg: #ffffff;
+  --menu-text: #0b3c5e;
+}
+
+/* =============================================
+   ☁️ Soft Clouds
+   ============================================= */
+.theme-clouds {
+  --bg: #e6f2ff;
+
+  --text-main: #023566;
+  --text-secondary: rgba(2, 53, 102, 0.7);
+
+  --btn-light-bg: #bddeff;
+  --btn-light-text: #023566;
+
+  --btn-dark-bg: #8bc5fe;
+  --btn-dark-text: #023566;
+
+  --btn-accent-bg: #8bc5fe;
+  --btn-accent-text: #023566;
+
+  --menu-light-bg: #bddeff;
+  --menu-accent-bg: #e6f2ff;
+  --menu-text: #023566;
+}
+
+/* =============================================
+   🍑 Peachy Keen
+   ============================================= */
+.theme-peachy {
+  --bg: #ffeee5;
+
+  --text-main: #532106;
+  --text-secondary: rgba(83, 33, 6, 0.7);
+
+  --btn-light-bg: #ffc3a2;
+  --btn-light-text: #532106;
+
+  --btn-dark-bg: #ffa574;
+  --btn-dark-text: #532106;
+
+  --btn-accent-bg: #ffa574;
+  --btn-accent-text: #532106;
+
+  --menu-light-bg: #ffc3a2;
+  --menu-accent-bg: #ffeee5;
+  --menu-text: #532106;
+}
