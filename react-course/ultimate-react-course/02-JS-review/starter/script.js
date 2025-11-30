@@ -145,7 +145,7 @@ function getBook(id) {
 
 const books = getBooks();
 books;
-const book = getBook(2);
+const book = getBook(1);
 book;
 // const title = book.title;
 // title;
@@ -162,3 +162,6 @@ console.log(pages);
 genres;
 const [mainGenres, secondaryGenres, ...otherGenres] = genres;
 console.log(mainGenres, secondaryGenres, otherGenres);
+mainGenres;
+const updatedBook = { ...book, updatedMoviePublication: "2001-12-19" };
+updatedBook;
