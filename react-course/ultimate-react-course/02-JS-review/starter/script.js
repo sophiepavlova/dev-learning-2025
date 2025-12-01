@@ -163,5 +163,15 @@ genres;
 const [mainGenres, secondaryGenres, ...otherGenres] = genres;
 console.log(mainGenres, secondaryGenres, otherGenres);
 mainGenres;
-const updatedBook = { ...book, updatedMoviePublication: "2001-12-19" };
+const updatedBook = {
+  ...book,
+  // Adding a new property
+  updatedMoviePublication: "2001-12-19",
+  //Overriding existing property
+  pages: 1027,
+};
 updatedBook;
+const summary = `${title} is a ${pages}-page book, written by ${author} and published in  ${
+  book.publicationDate.split("-")[0]
+}`;
+summary;
