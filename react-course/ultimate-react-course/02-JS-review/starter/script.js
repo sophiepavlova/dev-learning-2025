@@ -145,16 +145,18 @@ function getBook(id) {
 
 const books = getBooks();
 books;
-const book = getBook(1);
+
+const book = getBook(2);
 book;
 // const title = book.title;
 // title;
+
 const {
   title,
   author,
   genres,
-  hasMovieAdaptation,
   pages,
+  hasMovieAdaptation,
   translations,
   reviews,
 } = book;
@@ -171,7 +173,41 @@ const updatedBook = {
   pages: 1027,
 };
 updatedBook;
-const summary = `${title} is a ${pages}-page book, written by ${author} and published in  ${
-  book.publicationDate.split("-")[0]
-}`;
+
+// const yearFromDate = function(date){
+//   return date.split("-")[0];
+// };
+const getYear = (date) => date.split("-")[0];
+// const year = getYear(book.publicationDate);
+// year;
+
+const summary = `${title} is a ${pages}-page book, written by ${author} and published in  ${getYear(
+  book.publicationDate
+)}. The book has ${hasMovieAdaptation ? "" : "not"} been adapted as a movie`;
 summary;
+// Ternary operator
+const pagesRange =
+  pages > 1000 ? "more than a thousand" : "less than a thousand";
+pagesRange;
+console.log(`The book has ${pagesRange} pages`);
+console.log(true && "some string");
+console.log(false && "another string");
+console.log(hasMovieAdaptation && "is a movie");
+console.log("jonas" && "is great");
+console.log(0 && "is great");
+console.log("" && "is great");
+console.log(null && "is great");
+console.log(undefined && "is great");
+console.log(true || "some string");
+console.log("cool" || "some string");
+console.log(false || "some string");
+console.log(0 || "some string");
+console.log(null || "some string");
+console.log(book.translations.spanish);
+const spanishTranslation = book.translations.spanish || "No translation";
+
+console.log(book.reviews.librarything.reviewsCount);
+const countWrong = book.reviews.librarything.reviewsCount || "no data";
+countWrong; // but it is actually zero!
+const count = book.reviews.librarything.reviewsCount ?? "no data";
+count; //
