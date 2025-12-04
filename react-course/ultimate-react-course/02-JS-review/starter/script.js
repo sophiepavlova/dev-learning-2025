@@ -143,10 +143,10 @@ function getBook(id) {
   return data.find((d) => d.id === id);
 }
 
+/*
 const books = getBooks();
 books;
-
-const book = getBook(2);
+const book = getBook(3);
 book;
 // const title = book.title;
 // title;
@@ -206,8 +206,44 @@ console.log(null || "some string");
 console.log(book.translations.spanish);
 const spanishTranslation = book.translations.spanish || "No translation";
 
-console.log(book.reviews.librarything.reviewsCount);
-const countWrong = book.reviews.librarything.reviewsCount || "no data";
-countWrong; // but it is actually zero!
-const count = book.reviews.librarything.reviewsCount ?? "no data";
-count; //
+// console.log(book.reviews.librarything.reviewsCount);
+// const countWrong = book.reviews.librarything.reviewsCount || "no data";
+// countWrong; // but it is actually zero!
+// const count = book.reviews.librarything.reviewsCount ?? "no data";
+// count; //
+
+function getReviewsCount(book) {
+  const goodreads = book.reviews?.goodreads?.reviewsCount;
+  const librarything = book.reviews?.librarything?.reviewsCount ?? 0;
+
+  return goodreads + librarything;
+}
+console.log(getReviewsCount(book));
+*/
+function getReviewsCount(book) {
+  const goodreads = book.reviews?.goodreads?.reviewsCount;
+  const librarything = book.reviews?.librarything?.reviewsCount ?? 0;
+
+  return goodreads + librarything;
+}
+// Arrays methods: Map
+const books = getBooks();
+
+const sequence = [1, 2, 3, 4, 5].map((el) => el * 2);
+sequence;
+
+const titles = books.map((el) => el.title);
+titles;
+// const booksEssentials = books.map((book) => {
+//   return {
+//     title: book.title,
+//     author: book.author,
+//   };
+// });
+// the second method returning th object is to wrap it into paranthsis)
+const booksEssentials = books.map((book) => ({
+  title: book.title,
+  author: book.author,
+  reviewsCount: getReviewsCount(book);
+}));
+booksEssentials;
