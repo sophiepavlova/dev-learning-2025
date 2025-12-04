@@ -116,7 +116,7 @@ export default function App() {
     <div className="app-container">
       <ThemeSelector currentTheme={theme} onChangeTheme={setTheme} />
       <Display equation={equation} result={result} />
-      <Keypad onButtonPress={handleButtonPress} />
+      <Keypad onButtonPress={handleButtonPress} currentTheme={theme} />
     </div>
   );
 }
