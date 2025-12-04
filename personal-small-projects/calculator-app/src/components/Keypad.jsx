@@ -1,8 +1,6 @@
 import Button from "./Button";
 
 export default function Keypad({ onButtonPress, currentTheme }) {
-  const isKitten = currentTheme === "kitten";
-
   const layout = [
     ["C", "+/-", "%", "÷"],
     ["7", "8", "9", "×"],
@@ -11,26 +9,22 @@ export default function Keypad({ onButtonPress, currentTheme }) {
     [".", "0", "⌫", "="],
   ];
 
-  function getType(row, col, value) {
+  function getType(row, col, theme) {
+    const isKitten = currentTheme === "kitten";
     const isTopRow = row === 0;
     const isLastCol = col === 3;
 
-    // 🎀 HELLO KITTEN THEME
-    if (isKitten) {
-      if (isTopRow && !isLastCol) {
-        return "kitten-dark"; // C, +/-, %
-      }
-      if (isLastCol) {
-        return "kitten-red"; // ÷ × − + =
-      }
-      return "kitten-yellow"; // numbers, ., 0, ⌫
-    }
+    // Operators → always dark
+    if (isLastCol) return "dark";
 
-    // 🌤 OTHER THEMES
-    if (isLastCol) return "dark"; // operators
-    if (isTopRow) return "light"; // C, +/-, %
-    if (value === "=") return "accent";
-    return "white"; // numbers
+    // Top row → light (kitten overrides via variables)
+    if (isTopRow) return "light";
+
+    // Numbers in kitten → accent (yellow)
+    if (isKitten) return "accent";
+
+    // Numbers in other themes → white
+    return "white";
   }
 
   return (

@@ -23,7 +23,7 @@
 .theme-selector {
   display: flex;
   align-items: center;
-  background: white;
+  background: var(--theme-pill-bg);
   padding: 4px 6px; /* верх/низ 4px, лево/право 6px */
   gap: 10px; /* расстояние между иконками */
   border-radius: 14px;

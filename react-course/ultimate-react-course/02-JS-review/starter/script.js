@@ -66,7 +66,7 @@ const data = [
     publicationDate: "1965-01-01",
     author: "Frank Herbert",
     genres: ["science fiction", "novel", "adventure"],
-    hasMovieAdaptation: true,
+    hasMovieAdaptation: false,
     pages: 658,
     translations: {
       spanish: "",
@@ -85,7 +85,7 @@ const data = [
     publicationDate: "1997-06-26",
     author: "J. K. Rowling",
     genres: ["fantasy", "adventure"],
-    hasMovieAdaptation: true,
+    hasMovieAdaptation: false,
     pages: 223,
     translations: {
       spanish: "Harry Potter y la piedra filosofal",
@@ -244,6 +244,21 @@ titles;
 const booksEssentials = books.map((book) => ({
   title: book.title,
   author: book.author,
-  reviewsCount: getReviewsCount(book);
+  reviewsCount: getReviewsCount(book),
 }));
 booksEssentials;
+const longBooksWithMovies = books
+  .filter((book) => book.pages > 500)
+  .filter((book) => book.hasMovieAdaptation);
+longBooksWithMovies;
+
+const adventureBooks = books
+  .filter((book) => book.genres.includes("adventure"))
+  .map((book) => book.title);
+adventureBooks;
+
+const pagesAllBooks = books.reduce((acc, book) => acc + book.pages, 0);
+pagesAllBooks;
+const x = [3, 7, 1, 9, 6];
+const sorted = x.sort((a, b) => a - b);
+sorted;
